@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kompyuter laboratoriyasi: ichida nima borligini tushuning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="rail" id="rail" aria-label="Boʻlimlar"></nav>
+<main>
+
+<section id="home" class="hero" data-nav="3D kompyuter">
+  <div class="slot" id="slot-home" data-mode="lab">
+    <div class="stage" id="stage">
+      <canvas id="gl" aria-label="Interaktiv 3D kompyuter"></canvas>
+      <div class="tools" id="tools">
+        <button data-t="explode" aria-pressed="false">Ajratilgan koʻrinish</button>
+        <button data-t="inside" aria-pressed="false">Ichki rejim</button>
+        <button data-t="open" aria-pressed="false">Yon panelni ochish</button>
+        <button data-t="reset">Koʻrinishni tiklash</button>
+      </div>
+      <aside class="info" id="info" aria-live="polite"></aside>
+      <p class="hint">Aylantirish uchun suring. Yaqinlashtirish uchun gildiraking. Istalgan qismni bosing.</p>
+    </div>
+  </div>
+  <div class="intro">
+    <h1>Ichida nima borligini tushuning.</h1>
+    <p>Zamonaviy kompyuter ichidagi texnologiyalarni oʻrganing: CPU va GPUdan NVMe xotira va PCIe gacha.</p>
+    <div class="btns"><button id="go-explore">Kompyuterni oʻrganish</button><button class="ghost" data-go="hardware">Oʻrganishni boshlash</button></div>
+  </div>
+</section>
+
+<section id="hardware" class="sec" data-nav="Uskunalar">
+  <h2 class="rv">Uskunalar bilan tanishuv</h2>
+  <input id="search" class="rv" type="search" placeholder="Qidirish: cpu, xotira, quvvat, sovitish…" aria-label="Uskunalarni qidirish">
+  <div class="grid" id="cards"></div>
+</section>
+
+<section id="storage" class="sec dark" data-nav="Xotira">
+  <h2 class="rv">Xotira: aylanuvchi disklardan PCIe gacha</h2>
+  <div class="tabs rv" id="tech-tabs"></div>
+  <div class="tech rv" id="tech"></div>
+  <div class="four" id="four"></div>
+</section>
+
+<section id="builder" class="sec split" data-nav="PC konfiguratori">
+  <div class="panel rv">
+    <h2>PC konfiguratori</h2>
+    <form id="cfg" onsubmit="return false"></form>
+    <div id="compat" class="compat"></div>
+  </div>
+  <div class="slot rv" id="slot-builder" data-mode="build"></div>
+</section>
+
+<section id="sim" class="sec split" data-nav="Yigʻish simulyatori">
+  <div class="panel rv">
+    <h2>PCni qadam-baqadam yigʻing</h2>
+    <p class="count" id="sim-count"></p>
+    <h3 id="sim-title"></h3><p id="sim-text"></p>
+    <div class="btns"><button class="ghost" id="sim-prev">Orqaga</button><button id="sim-next">Keyingi qadam</button></div>
+    <p class="note">Taʼlim simulyatsiyasi. Haqiqiy yigʻishda antistatik ehtiyot choralari va har bir qismning qoʻllanmasi kerak.</p>
+  </div>
+  <div class="slot rv" id="slot-sim" data-mode="sim"></div>
+</section>
+
+<section id="quiz" class="sec" data-nav="Viktorina">
+  <h2 class="rv">Uskunalar viktorinasi</h2>
+  <div id="quiz-box" class="quiz rv"></div>
+</section>
+
+</main>
+<dialog id="dlg"><div id="dlg-body"></div><button class="ghost" onclick="this.parentNode.close()">Yopish</button></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
